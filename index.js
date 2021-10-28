@@ -93,20 +93,16 @@ type Mutation{
 
 var root = {
   restaurant: (arg) => {
-    // Your code goes here
     return restaurants[arg.id]
   },
   restaurants: () => {
-    // Your code goes here
     return restaurants;
   },
   setrestaurant: ({ input }) => {
-    // Your code goes here
     restaurants.push({name:input.name,description:input.description})
     return input
   },
   deleterestaurant: ({ id }) => {
-    // Your code goes here
     const ok = Boolean(restaurants[id])
     let delc = restaurants[id];
     restaurants = restaurants.filter(item => item.id !== id)
@@ -115,7 +111,6 @@ var root = {
 
   },
   editrestaurant: ({ id, ...restaurant }) => {
-    // Your code goes here
     if(!restaurants[id]) {
       throw new Error("restaurant doesn't exist")
     }
